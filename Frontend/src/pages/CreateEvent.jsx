@@ -28,13 +28,13 @@ export default function CreateEvent() {
         capacity: 0,
       });
     } catch {
-      alert("❌ Failed to create event");
+      alert(" Failed to create event");
     }
   };
 
   return (
     <div className="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-6">
-      <h2 className="text-2xl font-bold text-indigo-700 mb-4">📌 Create New Event</h2>
+      <h2 className="text-2xl font-bold text-indigo-700 mb-4"> Create New Event</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -90,7 +90,7 @@ export default function CreateEvent() {
           type="submit"
           className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded font-semibold transition-colors"
         >
-          ➕ Create Event
+           Create Event
         </button>
       </form>
     </div>

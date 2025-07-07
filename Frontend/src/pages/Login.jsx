@@ -16,7 +16,7 @@ function Login() {
       const { data } = await API.post("/auth/login", form);
       localStorage.setItem("token", data.token);
       login(data.user);
-      navigate("/dashboard"); // 🔁 redirect to dashboard after login
+      navigate("/dashboard"); 
     } catch (err) {
       setError(err.response?.data?.error || "Login failed. Try again.");
     }

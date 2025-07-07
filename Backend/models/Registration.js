@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// user registration
 const registrationSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   eventId: { type: mongoose.Schema.Types.ObjectId, ref: "Event" },

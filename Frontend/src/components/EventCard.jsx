@@ -7,7 +7,7 @@ function EventCard({ event }) {
       await API.post(`/registrations/${event._id}`);
       alert("✅ Registered successfully!");
     } catch (err) {
-      alert(err.response?.data?.error || "❌ Failed to register");
+      alert(err.response?.data?.error || " Failed to register");
     }
   };
 

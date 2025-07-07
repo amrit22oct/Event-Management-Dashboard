@@ -14,7 +14,6 @@ export default function Home() {
       const res = await API.get("/events");
       setEvents(res.data);
 
-      // Join socket rooms
       res.data.forEach((event) => {
         socket.emit("joinEventRoom", event._id);
       });
@@ -31,10 +30,10 @@ export default function Home() {
 
     socket.on("registrationUpdated", fetchEvents);
 
-    // Optional: Listen for new events
+    
     socket.on("newEvent", (event) => {
-      toast.success(`🎉 New Event Added: ${event.title}`);
-      fetchEvents(); // refresh list
+      toast.success(` New Event Added: ${event.title}`);
+      fetchEvents(); 
     });
 
     return () => {

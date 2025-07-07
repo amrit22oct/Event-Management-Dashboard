@@ -1,7 +1,9 @@
 import Registration from "../models/Registration.js";
 import Event from "../models/Event.js";
-import { getIO } from "../socket.js"; // ✅ import only
+import { getIO } from "../socket.js"; 
 
+
+// reginstering the user for the event 
 export const registerForEvent = async (req, res) => {
   const userId = req.user.id;
   const { eventId } = req.params;
@@ -17,7 +19,7 @@ export const registerForEvent = async (req, res) => {
 
   const registration = await Registration.create({ userId, eventId });
 
-  // ✅ Safely get socket after init
+  
   const io = getIO();
   io.to(eventId).emit("registrationUpdated", { eventId });
 

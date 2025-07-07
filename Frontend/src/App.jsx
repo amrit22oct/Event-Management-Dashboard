@@ -17,7 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         
-        {/* 🔒 Protect dashboard */}
+       
         <Route
           path="/dashboard"
           element={
@@ -26,8 +26,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-        {/* 🔒 Organizer-only route */}
         <Route
           path="/create"
           element={

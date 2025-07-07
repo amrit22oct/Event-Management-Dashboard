@@ -15,25 +15,25 @@ const app = express();
 const server = http.createServer(app); // for socket.io
 const PORT = process.env.PORT || 5000;
 
-// ✅ Middlewares
+//  Middlewares
 app.use(cors());
 app.use(express.json());
 
-// ✅ Routes
+//  Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/registrations", registrationRoutes);
 
-// ✅ Socket.IO setup
+//  Socket.IO setup
 initSocket(server);
 
 
 
-// ✅ Connect MongoDB and Start Server
+//  Connect MongoDB and Start Server
 const startServer = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("✅ MongoDB connected");
+    console.log(" MongoDB connected");
 
     server.listen(PORT, () => {
       console.log(`🚀 Server running at http://localhost:${PORT}`);

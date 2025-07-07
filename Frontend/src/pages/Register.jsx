@@ -29,7 +29,6 @@ export default function Register() {
         <h2 className="text-2xl font-bold mb-6 text-center text-indigo-600">
           Register for EventSphere
         </h2>
-
         {error && (
           <div className="bg-red-100 text-red-600 px-4 py-2 rounded mb-4">
             {error}
@@ -44,7 +43,6 @@ export default function Register() {
           className="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           required
         />
-
         <input
           type="email"
           placeholder="Email"
@@ -63,13 +61,14 @@ export default function Register() {
           required
         />
 
+
         <select
           value={form.role}
           onChange={(e) => setForm({ ...form, role: e.target.value })}
           className="w-full p-3 border border-gray-300 rounded mb-6 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="user">User</option>
-          <option value="organizer">Organizer</option>
+          <option value="organizer">Organizer </option>
         </select>
 
         <button
