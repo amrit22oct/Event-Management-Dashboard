@@ -13,7 +13,7 @@ function Dashboard() {
     try {
       const { data } = await API.get("/events");
       setEvents(data);
-    } catch {
+    } catch (err) {
       toast.error("Failed to fetch events");
     }
   };
@@ -21,23 +21,22 @@ function Dashboard() {
   useEffect(() => {
     fetchEvents();
     socket.on("registrationUpdated", fetchEvents);
-    return () => socket.off("registrationUpdated", fetchEvents);
-  }, []);
 
-  const filteredEvents = events.filter(
-    (event) => event.organizer === user?._id
-  );
+    return () => {
+      socket.off("registrationUpdated", fetchEvents);
+    };
+  }, []);
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
       <h2 className="text-2xl font-bold text-indigo-700 mb-6 text-center">
-         Your Dashboard Events
+        🎯 Your Dashboard Events
       </h2>
-      {filteredEvents.length === 0 ? (
+      {events.length === 0 ? (
         <p className="text-gray-500 text-center">No events created yet.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredEvents.map((event) => (
+          {events.map((event) => (
             <EventCard
               key={event._id}
               event={event}
