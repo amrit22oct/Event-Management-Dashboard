@@ -47,5 +47,5 @@ DELETE /events/:id → Delete event (only if organizer)
 Registration Route
 POST /registrations/:eventId → Register for an event
  Developer
-👨‍💻 [Amrit rai] – GitHub: https://github.com/amrit22oct
+👨‍💻 [Amrit rai] – GitHub: [https://github.com/amrit22oct](https://github.com/amrit22oct/Event-Management-Dashboard.git)
 
