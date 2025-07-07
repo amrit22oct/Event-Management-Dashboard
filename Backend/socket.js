@@ -11,19 +11,19 @@ export const initSocket = (server) => {
   });
 
   io.on("connection", (socket) => {
-    console.log("🔌 Client connected");
+    console.log(" Client connected");
 
     socket.on("joinEventRoom", (eventId) => {
       socket.join(eventId);
     });
 
     socket.on("disconnect", () => {
-      console.log("❌ Client disconnected");
+      console.log(" Client disconnected");
     });
   });
 };
 
 export const getIO = () => {
-  if (!io) throw new Error("❗ Socket.IO not initialized");
+  if (!io) throw new Error("! Socket.IO not initialized");
   return io;
 };

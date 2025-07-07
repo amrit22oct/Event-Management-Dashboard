@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import API from "../services/api";
 
 export default function Register() {
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -15,22 +16,22 @@ export default function Register() {
   const handleRegister = async () => {
     setError(null);
     try {
-      await API.post("/auth/register", form);
-      alert("Registration successful! Redirecting to login...");
-      navigate("/login");
+       await API.post("/auth/register", form);
+         alert("Registration successful! Redirecting to login...");
+        navigate("/login");
     } catch (err) {
-      setError(err.response?.data?.error || "Registration failed. Try again.");
+         setError(err.response?.data?.error || "Registration failed. Try again.");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-indigo-600">
-          Register for EventSphere
-        </h2>
+          <h2 className="text-2xl font-bold mb-6 text-center text-indigo-600">
+            Register for EventSphere
+         </h2>
         {error && (
-          <div className="bg-red-100 text-red-600 px-4 py-2 rounded mb-4">
+             <div className="bg-red-100 text-red-600 px-4 py-2 rounded mb-4">
             {error}
           </div>
         )}

@@ -6,9 +6,10 @@ const API = axios.create({
 
 // Attach token to each request
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) config.headers.Authorization = token;
-  return config;
+    const token = localStorage.getItem("token");
+
+     if (token) config.headers.Authorization = token;
+      return config;
 });
 
 export default API;

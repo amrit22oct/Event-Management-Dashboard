@@ -47,7 +47,7 @@ export default function Home() {
       <Toaster position="top-center" />
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-indigo-700 mb-10">
-          🚀 Upcoming Events
+           Upcoming Events
         </h2>
 
         {loading ? (
@@ -57,7 +57,7 @@ export default function Home() {
             No events available at the moment.
           </p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map((event) => (
   <EventCard key={event._id} event={event} showRegisterButton={true} />
 

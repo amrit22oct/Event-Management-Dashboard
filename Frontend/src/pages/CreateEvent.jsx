@@ -12,14 +12,14 @@ export default function CreateEvent() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await API.post("/events", form);
-      alert("🎉 Event created successfully!");
+      alert(" Event created successfully!");
       setForm({
         title: "",
         description: "",
@@ -28,7 +28,7 @@ export default function CreateEvent() {
         capacity: 0,
       });
     } catch {
-      alert(" Failed to create event");
+       alert(" Failed to create event");
     }
   };
 
@@ -47,7 +47,7 @@ export default function CreateEvent() {
           className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
 
-        <textarea
+         <textarea
           name="description"
           placeholder="Event Description"
           value={form.description}
@@ -56,7 +56,7 @@ export default function CreateEvent() {
           className="w-full border border-gray-300 p-3 rounded h-24 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
 
-        <input
+       <input
           name="date"
           type="datetime-local"
           value={form.date}

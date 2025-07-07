@@ -11,14 +11,14 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
+     setError(null);
     try {
-      const { data } = await API.post("/auth/login", form);
-      localStorage.setItem("token", data.token);
-      login(data.user);
-      navigate("/dashboard"); 
+       const { data } = await API.post("/auth/login", form);
+          localStorage.setItem("token", data.token);
+          login(data.user);
+        navigate("/dashboard"); 
     } catch (err) {
-      setError(err.response?.data?.error || "Login failed. Try again.");
+        setError(err.response?.data?.error || "Login failed. Try again.");
     }
   };
 
@@ -29,7 +29,7 @@ function Login() {
         className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md"
       >
         <h2 className="text-2xl font-bold mb-6 text-center text-indigo-600">
-          Login to EventSphere
+           Login to EventSphere
         </h2>
 
         {error && (
@@ -50,15 +50,15 @@ function Login() {
         <input
           type="password"
           placeholder="Password"
-          value={form.password}
+           value={form.password}
           onChange={(e) => setForm({ ...form, password: e.target.value })}
           className="w-full p-3 border border-gray-300 rounded mb-6 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           required
         />
 
         <button
-          type="submit"
-          className="w-full bg-indigo-600 text-white p-3 rounded hover:bg-indigo-700 transition"
+           type="submit"
+             className="w-full bg-indigo-600 text-white p-3 rounded hover:bg-indigo-700 transition"
         >
           Login
         </button>

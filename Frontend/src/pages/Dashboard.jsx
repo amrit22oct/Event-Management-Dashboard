@@ -31,7 +31,7 @@ function Dashboard() {
   return (
     <div className="p-4 max-w-6xl mx-auto">
       <h2 className="text-2xl font-bold text-indigo-700 mb-6 text-center">
-        🎯 Your Dashboard Events
+         Your Dashboard Events
       </h2>
       {filteredEvents.length === 0 ? (
         <p className="text-gray-500 text-center">No events created yet.</p>

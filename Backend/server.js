@@ -12,7 +12,7 @@ import { initSocket } from "./socket.js";
 dotenv.config();
 
 const app = express();
-const server = http.createServer(app); // for socket.io
+const server = http.createServer(app); 
 const PORT = process.env.PORT || 5000;
 
 //  Middlewares
@@ -24,7 +24,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/registrations", registrationRoutes);
 
-//  Socket.IO setup
+
 initSocket(server);
 
 
@@ -36,10 +36,10 @@ const startServer = async () => {
     console.log(" MongoDB connected");
 
     server.listen(PORT, () => {
-      console.log(`🚀 Server running at http://localhost:${PORT}`);
+      console.log(` Server running at http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.error("❌ Failed to connect to MongoDB:", error.message);
+    console.error(" Failed to connect to MongoDB:", error.message);
     process.exit(1);
   }
 };

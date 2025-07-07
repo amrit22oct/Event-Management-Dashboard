@@ -5,8 +5,9 @@ import { requireRole } from "../middleware/roleMiddleware.js";
 
 const router = express.Router();
 
-router.get("/", getEvents);
-router.post("/", protect, requireRole("organizer"), createEvent);
-router.delete("/:id", protect, requireRole("organizer"), deleteEvent);
+  router.get("/", getEvents);
+
+  router.post("/", protect, requireRole("organizer"), createEvent);
+  router.delete("/:id", protect, requireRole("organizer"), deleteEvent);
 
 export default router;

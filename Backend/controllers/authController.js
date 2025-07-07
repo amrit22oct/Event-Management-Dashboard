@@ -9,9 +9,10 @@ export const register = async (req, res) => {
   try {
     // Check if role is organizer and already 2 exist
     if (role === "organizer") {
+      
       const organizerCount = await User.countDocuments({ role: "organizer" });
-      if (organizerCount >= 2) {
-        return res.status(400).json({ error: "Only two organizers are allowed." });
+          if (organizerCount >= 2) {
+           return res.status(400).json({ error: "Only two organizers are allowed." });
       }
     }
 
@@ -24,7 +25,7 @@ export const register = async (req, res) => {
       role,
     });
 
-    res.status(201).json({
+     res.status(201).json({
       message: "User registered successfully",
       user: {
         _id: user._id,
@@ -32,7 +33,7 @@ export const register = async (req, res) => {
         email: user.email,
         role: user.role,
       },
-    });
+     });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Registration failed" });
@@ -44,14 +45,14 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ error: "Invalid credentials" });
-
+       if (!user) return res.status(400).json({ error: "Invalid credentials" });
+ 
     const match = await bcrypt.compare(password, user.password);
-    if (!match) return res.status(400).json({ error: "Invalid credentials" });
+        if (!match) return res.status(400).json({ error: "Invalid credentials" });
 
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET);
-    res.json({ token, user: { name: user.name, role: user.role } });
+       res.json({ token, user: { name: user.name, role: user.role } });
   } catch {
-    res.status(500).json({ error: "Login failed" });
+       res.status(500).json({ error: "Login failed" });
   }
 };
