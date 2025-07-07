@@ -27,8 +27,7 @@ app.use("/api/registrations", registrationRoutes);
 // ✅ Socket.IO setup
 initSocket(server);
 
-// ✅ Optional Error handler (define one if needed)
-// app.use(errorHandler); // Only if you’ve defined it
+
 
 // ✅ Connect MongoDB and Start Server
 const startServer = async () => {
